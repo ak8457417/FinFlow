@@ -9,7 +9,8 @@ const Goals = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/bot/api/get-plans");
+            const response = await axios.get("http://localhost:5000/api/financial/plans");
+            console.log(response.data);
             setPlans(response.data); // Store the data in state
             setLoading(false);
         } catch (e) {
@@ -35,7 +36,7 @@ const Goals = () => {
             <h2 className={'text-[24px] font-bold mb-3'}>Financial Plans</h2>
             <ul className={'flex flex-col sm:grid sm:grid-cols-3 gap-6'}>
                 {plans.map((plan) => (
-                    <MultiActionAreaCard id={plan._id} title={plan.goal_description} amount={plan.goal_amount} time={plan.timeframe} spm={plan.monthly_saving_amount} onDelete={handleDelete}/>
+                    <MultiActionAreaCard id={plan._id} title={plan.goalDescription} amount={plan.goalAmount} time={plan.timeframe} spm={plan.monthlySavingAmount} onDelete={handleDelete}/>
                 ))}
             </ul>
         </div>

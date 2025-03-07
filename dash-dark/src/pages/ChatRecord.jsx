@@ -19,7 +19,7 @@ const ChatRecord = () => {
     useEffect(() => {
         const fetchPlans = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/bot/api/get-plans");
+                const response = await axios.get("http://localhost:5000/api/financial/plans");
                 setPlans(response.data);
             } catch (err) {
                 setError("Error fetching financial plans.");
@@ -36,20 +36,21 @@ const ChatRecord = () => {
 
     return (
         <div className="!p-[24px] !space-y-6 !mb-50">
+            <h2 className={'text-[24px] font-bold mb-3'}>Chat Records</h2>
             {plans.map((plan) => (
                 <div key={plan._id} className="bg-[#101936] hover:bg-[#1e293b] border-[0.5px] border-gray-600 !p-6 shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
                     <h3 className="text-xl font-semibold text-white mb-3">Financial Plan for {plan.name}</h3>
                     <p><strong className="text-gray-400">Name:</strong> {plan.name}</p>
                     <p><strong className="text-gray-400">Income:</strong> ₹{plan.income}</p>
                     <p><strong className="text-gray-400">Expenses:</strong> ₹{plan.expenses}</p>
-                    <p><strong className="text-gray-400">Goal Description:</strong> {plan.goal_description}</p>
-                    <p><strong className="text-gray-400">Goal Amount:</strong> ₹{plan.goal_amount}</p>
+                    <p><strong className="text-gray-400">Goal Description:</strong> {plan.goalDescription}</p>
+                    <p><strong className="text-gray-400">Goal Amount:</strong> ₹{plan.goalAmount}</p>
                     <p><strong className="text-gray-400">Timeframe:</strong> {plan.timeframe} years</p>
-                    <p><strong className="text-gray-400">Monthly Saving Amount:</strong> ₹{plan.monthly_saving_amount.toFixed(2)}</p>
+                    <p><strong className="text-gray-400">Monthly Saving Amount:</strong> ₹{plan.monthlySavingAmount}</p>
 
                     {/* Show 'See More' button */}
                     <div className="mt-4">
-                        <SeeMoreContent content={plan.financial_plan} />
+                        <SeeMoreContent content={plan.financialPlan} />
                     </div>
                 </div>
             ))}

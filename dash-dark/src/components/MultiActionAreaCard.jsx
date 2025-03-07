@@ -8,7 +8,7 @@ export default function MultiActionAreaCard({ title, amount, time, spm, id, onDe
 
     const delPlans = async (id) => {
         try {
-            const response = await axios.post("http://localhost:5000/bot/api/del-plan", { id });
+            const response = await axios.delete(`http://localhost:5000/api/financial/plans/${id}`, { id });
             if (response.status === 200) {
                 onDelete(id); // Notify parent to remove the plan from the list
             }

@@ -39,11 +39,11 @@ dotenv.config();
 
 const mongoURI = process.env.MONGO_URI;
 const dbName = process.env.DB_NAME;
-const botCollectionName = process.env.BOT_COLLECTION;
-const taxCollectionName = process.env.TAX_COLLECTION;
-
-let botCollection;
-let taxCollection;
+// const botCollectionName = process.env.BOT_COLLECTION;
+// const taxCollectionName = process.env.TAX_COLLECTION;
+//
+// let botCollection;
+// let taxCollection;
 
 // User Schema and Model (Mongoose)
 const userSchema = new mongoose.Schema({
@@ -58,14 +58,14 @@ const User = mongoose.models.User || mongoose.model("User", userSchema);
 const connectDB = async () => {
     try {
         // Using MongoClient to connect to the database
-        const client = new MongoClient(mongoURI);
-        await client.connect();
-        console.log("✅ Connected to MongoDB");
+        // const client = new MongoClient(mongoURI);
+        // await client.connect();
+        // console.log("✅ Connected to MongoDB");
 
         // Get database and collections
-        const db = client.db(dbName);
-        botCollection = db.collection(botCollectionName);
-        taxCollection = db.collection(taxCollectionName);
+        // const db = client.db(dbName);
+        // botCollection = db.collection(botCollectionName);
+        // taxCollection = db.collection(taxCollectionName);
 
         // Now connect Mongoose for the User model
         await mongoose.connect(mongoURI, { dbName });
@@ -77,5 +77,6 @@ const connectDB = async () => {
     }
 };
 
-export { connectDB, botCollection, taxCollection, User };
+// export { connectDB, botCollection, taxCollection, User };
+export { connectDB, User };
 export default connectDB;

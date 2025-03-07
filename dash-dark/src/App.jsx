@@ -13,6 +13,7 @@ import Analytics from "./pages/Analytics.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import {ToastContainer} from "react-toastify";
+import Template from "./pages/Template.jsx";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
                     <Route path={'/settings'} element={<Settings />} />
                     <Route path={'/login'} element={<Login />} />
                     <Route path={'/signup'} element={<SignUp />} />
+                    <Route path={'/template'} element={<Template />} />
                 </Routes>
             </div>
         </div>

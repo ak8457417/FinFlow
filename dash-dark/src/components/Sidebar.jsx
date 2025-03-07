@@ -211,7 +211,7 @@ const Sidebar = () => {
               </li>
             </NavLink>
 
-            <NavLink to={'settings'}>
+            <NavLink to={'/settings'}>
               <li className={`nav-item ${activeItem === "settings" ? "active" : ""}`} onClick={() => setActiveItem("settings")}>
                 <div className="nav-link">
                   <span className="nav-icon"><Settings size={18} /></span>
@@ -221,7 +221,7 @@ const Sidebar = () => {
               </li>
             </NavLink>
 
-            <NavLink to={'/'}>
+            <NavLink to={'/template'}>
               <li className={`nav-item ${activeItem === "templates" ? "active" : ""}`} onClick={() => setActiveItem("templates")}>
                 <div className="nav-link">
                   <span className="nav-icon"><FileText size={18} /></span>
