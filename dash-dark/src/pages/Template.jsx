@@ -73,6 +73,14 @@ const Template = () => {
                         Sign Up
                     </Link>
                 </div>
+                <button className="!flex !items-center !gap-2 !px-6 !py-3 !text-white !font-bold !bg-indigo-600 !rounded-full !transition !duration-200 hover:!bg-gray-900">
+                    Sign up
+                    <div className="!flex !justify-center !items-center">
+                        <div className="!relative !w-2.5 !h-0.5 !bg-indigo-600 !transition !duration-200 group-hover:!bg-white">
+                            <span className="!absolute !top-[-6px] !right-0 !border-r-2 !border-b-2 !border-white !w-2.5 !h-2.5 !rotate-[-45deg] !transition !duration-200"></span>
+                        </div>
+                    </div>
+                </button>
             </div>
 
         </div>
